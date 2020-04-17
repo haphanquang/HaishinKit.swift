@@ -1,6 +1,6 @@
 import Foundation
 
-open enum MIME: String {
+public enum MIME: String {
     case textPlain           = "text/plain"
     case textHtml            = "text/html"
     case applicationXMpegURL = "application/x-mpegURL"
