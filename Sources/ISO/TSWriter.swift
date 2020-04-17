@@ -268,7 +268,7 @@ extension TSWriter: VideoEncoderDelegate {
     }
 }
 
-class TSFileWriter: TSWriter {
+open class TSFileWriter: TSWriter {
     static let defaultSegmentCount: Int = 3
     static let defaultSegmentMaxCount: Int = 12
 
@@ -374,7 +374,7 @@ class TSFileWriter: TSWriter {
         super.stopRunning()
     }
 
-    func getFilePath(_ fileName: String) -> String? {
+    open func getFilePath(_ fileName: String) -> String? {
         files.first { $0.url.absoluteString.contains(fileName) }?.url.path
     }
 
