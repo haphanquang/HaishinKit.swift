@@ -44,6 +44,13 @@ open class HTTPStream: NetStream {
         super.attachAudio(audio, automaticallyConfiguresApplicationAudioSession: automaticallyConfiguresApplicationAudioSession, onError: onError)
     }
     #endif
+    
+    open func prepareScreenRecordMedia() {
+        lockQueue.async {
+            self.tsWriter.expectedMedias.insert(.video)
+            self.tsWriter.expectedMedias.insert(.audio)
+        }
+    }
 
     open func getResource(_ resourceName: String) -> (MIME, String)? {
         let url = URL(fileURLWithPath: resourceName)
