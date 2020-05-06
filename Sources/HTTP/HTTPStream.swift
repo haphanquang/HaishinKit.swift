@@ -46,8 +46,8 @@ open class HTTPStream: NetStream {
     #endif
     
     open func prepareScreenRecordMedia() {
-        self.tsWriter.expectedMedias.insert(.video)
-        self.tsWriter.expectedMedias.insert(.audio)
+        tsWriter.expectedMedias.insert(.video)
+        tsWriter.expectedMedias.insert(.audio)
     }
 
     open func getResource(_ resourceName: String) -> (MIME, String)? {
