@@ -311,7 +311,12 @@ public class TSFileWriter: TSWriter {
         #else
         
         //WARNING: Test change folder
-        let bundleIdentifier = Bundle.main.bundleIdentifier!
+        var bundleIdentifier = Bundle.main.bundleIdentifier!
+        
+        if bundleIdentifier.contains("extension") {
+            bundleIdentifier = (bundleIdentifier as NSString).deletingPathExtension
+        }
+        
         let groupPath = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.\(bundleIdentifier)")?.path
         let temp = groupPath! + "/temp/"
         
