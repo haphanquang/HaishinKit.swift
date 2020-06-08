@@ -309,9 +309,10 @@ public class TSFileWriter: TSWriter {
         let bundleIdentifier: String? = Bundle.main.bundleIdentifier
         let temp: String = bundleIdentifier == nil ? NSTemporaryDirectory() : NSTemporaryDirectory() + bundleIdentifier! + "/"
         #else
-        //WARNING: Test change folder
         
-        let groupPath = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.soyo.screencast")?.path
+        //WARNING: Test change folder
+        let bundleIdentifier = Bundle.main.bundleIdentifier!
+        let groupPath = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.\(bundleIdentifier)")?.path
         let temp = groupPath! + "/temp/"
         
         #endif
